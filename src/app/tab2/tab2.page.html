@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Quotes Library
+    </ion-title>
+    <ion-title>
+      by Jonathan Hand 016307185
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content></ion-content>
+<ion-content>
+  <h3 text-center>Select your favorite Quotes</h3>
+  <ion-list *ngFor="let quoteGroup of quoteCollection">
+    <ion-item>      
+      <ion-label>
+        <ion-icon [name] = "quoteGroup.icon"></ion-icon>
+        <h2>{{ quoteGroup.category | uppercase }}</h2>
+        <p>{{ quoteGroup.quotes.length }} person</p>
+      </ion-label>
+    </ion-item>
+    <ion-card (click) = "onAddToFavorite(quoteDetail)" *ngFor="let quoteDetail of quoteGroup.quotes; let i = index">
+      <ion-card-header>
+        <p class="quoteTitle">{{i+1}} {{quoteDetail.person}} </p>
+      </ion-card-header>
+      <ion-card-content>
+        <p text-wrap> {{ quoteDetail.text}}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+</ion-content>
