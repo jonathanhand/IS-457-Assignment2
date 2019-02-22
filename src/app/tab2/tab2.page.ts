@@ -22,7 +22,7 @@ export class Tab2Page implements OnInit{
     const alert = await this.alertCtrl.create({
       header: 'Add Quote',
       subHeader: 'Are you sure?',
-      message: 'Are you sure you want to add the dish?',
+      message: 'Are you sure you want to add the quote?',
       buttons: [
         {
           text: 'Confirm',
